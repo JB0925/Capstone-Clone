@@ -10,8 +10,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-SECRET_KEY = os.getenv('SECRET_KEY')
-SUPABASE_URL = os.getenv('SUPABASE_URL', 'postgresql:///calendar')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+SUPABASE_URL = os.environ.get('SUPABASE_URL', 'postgresql:///calendar')
 
 app = Flask(__name__)
 app.register_blueprint(api_users) #registering the API blueprint
