@@ -11,10 +11,8 @@ import os
 
 load_dotenv()
 SECRET_KEY = os.environ.get("SECRET_KEY")
-try:
-    SUPABASE_URL = os.environ.get("SUPABASE_URL", 'postgresql:///calendar')
-except Exception:
-    print("*********** SUPABASE URL *************", os.environ.get("SUPABASE_URL"))
+SUPABASE_URL = os.environ.get("SUPABASE_URL", 'postgresql:///calendar')
+
 app = Flask(__name__)
 app.register_blueprint(api_users) #registering the API blueprint
 app.register_blueprint(api_events)
