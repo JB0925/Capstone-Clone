@@ -4,8 +4,8 @@ from models import connect_db, db, User
 app = Flask(__name__)
 api_users= Blueprint('api_users', __name__) #creating the API blueprint
 
-app.config["SECRET_KEY"] = "oh-so-secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///calendar"
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "oh-so-secret")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SUPABASE_URL", "postgresql:///calendar")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 app.app_context().push()
