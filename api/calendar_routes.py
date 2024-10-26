@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, Blueprint
 from models import connect_db, db, Calendar, Event
 from datetime import datetime
 
+import os
+
 app = Flask(__name__)
 api_calendars= Blueprint('api_calendars', __name__) #creating the API blueprint
 
